@@ -219,7 +219,6 @@
             position: relative;
         }
         
-        /* イラストのスタイル調整 */
         .metabolic-icon, .water-icon, .appetite-icon, .sleep-icon, .hormone-icon {
             width: 100%;
             height: 100%;
@@ -256,7 +255,6 @@
             animation: shimmer 3s infinite;
         }
         
-        /* アニメーション（控えめに調整） */
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.05); }
@@ -286,7 +284,6 @@
             100% { transform: scale(1) rotate(0deg); }
         }
         
-        /* スマホ対応の追加調整 */
         @media (max-width: 480px) {
             body {
                 padding: 5px;
@@ -491,16 +488,13 @@
         function selectOption(optionIndex) {
             const option = questions[currentQuestion].options[optionIndex];
             
-            // スコアを加算
             for (let type in option.scores) {
                 scores[type] += option.scores[type];
             }
             
-            // 選択した選択肢をハイライト
             document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
             document.querySelectorAll('.option')[optionIndex].classList.add('selected');
             
-            // 次の質問へ
             setTimeout(() => {
                 currentQuestion++;
                 showQuestion();
@@ -511,7 +505,6 @@
             const progress = document.getElementById('progress');
             progress.style.width = '100%';
             
-            // 最高スコアのタイプを判定
             let maxScore = 0;
             let resultType = 'metabolic';
             
@@ -524,7 +517,6 @@
             
             const typeData = typeInfo[resultType];
             
-            // イラストのクラス名を決定
             const iconClasses = {
                 metabolic: 'metabolic-icon',
                 water: 'water-icon', 
@@ -533,7 +525,6 @@
                 hormone: 'hormone-icon'
             };
             
-            // 各タイプの絵文字を設定
             const typeEmojis = {
                 metabolic: '💪',
                 water: '💧', 
@@ -581,7 +572,6 @@
             startQuiz();
         }
 
-        // 初期化
         startQuiz();
     </script>
 </body>
